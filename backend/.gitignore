@@ -1,0 +1,30 @@
+# Java / Spring Boot gitignore
+target/
+build/
+.gradle/
+bin/
+*.class
+*.jar
+*.war
+*.ear
+
+# Maven
+.mvn/wrapper/maven-wrapper.jar
+
+# Logs
+logs/
+*.log
+
+# Sensitive properties
+application-local.properties
+application-local.yml
+application-prod.properties
+application-prod.yml
+
+# IDE
+.idea/
+*.iml
+.project
+.classpath
+.settings/
+.vscode/

@@ -1,0 +1,26 @@
+---
+description: Flujo obligatorio al procesar o terminar una reunión
+globs: docs/reuniones/**,docs/requerimientos/**
+alwaysApply: false
+---
+
+# Flujo de Fin de Reunión
+
+Al procesar, registrar o resumir una reunión:
+
+1. **Audios y Videos:**
+   - NUNCA versionar archivos `.ogg`, `.mp3`, `.mp4`, `.wav` en Git.
+   - Almacenar en Google Drive / OneDrive y enlazar en el acta.
+2. **Carpeta de Reunión:**
+   - Crear `docs/reuniones/YYYY-MM-DD_<nombre_descriptivo>/`.
+3. **Transcripción:**
+   - Archivo `docs/reuniones/YYYY-MM-DD_<nombre>/transcripcion.md`.
+   - Limpiar muletillas, estructurar turnos de oradores y agregar timestamps `[MM:SS]`.
+4. **Acta de Reunión:**
+   - Archivo `docs/reuniones/YYYY-MM-DD_<nombre>/acta.md` usando plantilla `docs/reuniones/plantilla_acta.md`.
+   - Incluir encabezado, objetivos, resumen temático, tabla de acuerdos y próximos pasos con responsables.
+5. **Actualizar Índice de Reuniones:**
+   - Registrar la reunión en `docs/reuniones/README.md`.
+6. **Impacto en Requerimientos (SRS):**
+   - Si cambia alcance: generar nueva versión mayor `docs/requerimientos/v(N+1)/` o incrementar menor (ej. v2.1 -> v2.2) detallando el cambio en el control de versiones.
+   - Actualizar sección de *Decisiones Pendientes* del SRS vigente.

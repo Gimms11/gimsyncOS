@@ -1,0 +1,65 @@
+---
+description: Taxonomía y casos específicos para agregar documentación técnica y comercial
+globs: docs/**
+alwaysApply: false
+---
+
+# Casos Específicos para Agregar Documentación
+
+Cualquier nuevo documento debe clasificarse en uno de estos casos concretos:
+
+### Caso 1: Fin de Reunión / Minuta de Sesión
+- **Ruta:** `docs/reuniones/YYYY-MM-DD_<nombre>/`
+- **Archivos:** `transcripcion.md` + `acta.md` (desde plantilla).
+- **Acción obligatoria:** Actualizar tabla en `docs/reuniones/README.md` y verificar impacto en SRS.
+
+### Caso 2: Evolución de Requerimientos (SRS)
+- **Ruta:** `docs/requerimientos/v<N>/SRS_Fase_<F>_v<N.M>.md`
+- **Regla de versionado:**
+  - *Cambio mayor (nueva fase / cambio arquitectural de alcance):* Crear nueva carpeta `v(N+1)/` y archivar la previa.
+  - *Cambio menor (ajuste de regla, nuevo RF puntual, resolución de duda):* Editar SRS vigente, incrementar decimal (ej. v2.1 -> v2.2) y registrar cambio en la tabla "Control de Versiones".
+- **Acción obligatoria:** Actualizar `docs/requerimientos/README.md`.
+
+### Caso 3: Decisiones de Arquitectura (ADR)
+- **Ruta:** `docs/arquitectura/adr/NNN_<titulo_kebab_case>.md` (ej. `001_monolito_modular_spring_boot.md`).
+- **Formato:** Usar obligatoriamente `docs/arquitectura/adr/000_plantilla.md` (Contexto, Decisión, Alternativas evaluadas, Consecuencias).
+- **Acción obligatoria:** Actualizar índice en `docs/arquitectura/README.md`.
+
+### Caso 4: Modelado y Esquema de Base de Datos
+- **Ruta:** `docs/base-de-datos/`
+- **Archivos:** `modelo-conceptual.md` (diagrama Mermaid ER), `diccionario-datos.md` (tablas, tipos, PK/FK).
+- **Regla:** Sincronizar siempre con los scripts SQL en `backend/src/main/resources/db/migration/` o `db/migrations/`.
+- **Acción obligatoria:** Actualizar `docs/base-de-datos/README.md`.
+
+### Caso 5: Contratos y Especificación de APIs
+- **Ruta:** `docs/api/`
+- **Formato:** Especificaciones OpenAPI 3.0 (`.yaml` / `.json`) o documentos Markdown por recurso (`auth.md`, `billing.md`).
+- **Requisitos:** Especificar método HTTP, ruta, cabeceras, payload de request, códigos de respuesta (200, 400, 401, 403, 500) y JSON de ejemplo.
+- **Acción obligatoria:** Actualizar `docs/api/README.md`.
+
+### Caso 6: Propuestas Comerciales, Pricing y Monetización
+- **Ruta:** `docs/negocio/`
+- **Formato:** `<nombre_propuesta_kebab_case>.md`.
+- **Regla estricta:** NO inventar precios, comisiones ni penalizaciones. Toda cifra debe sustentarse en actas con el cliente, cotizaciones reales de proveedores (PSE, hosting) o análisis financiero explícito.
+- **Acción obligatoria:** Actualizar `docs/negocio/README.md`.
+
+### Caso 7: Guías Técnicas, Procesos y Onboarding
+- **Ruta:** `docs/guias/`
+- **Nomenclatura:** `NOMBRE_EN_MAYUSCULAS.md` (para guías normativas globales) o `kebab-case.md`.
+- **Acción obligatoria:** Actualizar `docs/guias/README.md`.
+
+### Caso 8: Diagramas de Arquitectura y Activos Visuales
+- **Ruta:** `docs/arquitectura/diagramas/` (C4, secuencia, flujo) y `docs/assets/` (imágenes, mockups).
+- **Regla:** Preferir Mermaid embebido en markdown. Si es binario, usar únicamente formatos web ligeros (SVG, PNG, WebP). Prohibido versionar PSD, AI o archivos de diseño pesados.
+
+### Caso 9: Reporte de Incidencias Técnicas / Post-mortems
+- **Ruta:** `docs/arquitectura/post-mortems/` o `docs/guias/`
+- **Formato:** `YYYY-MM-DD_<descripcion_incidencia>.md`.
+- **Contenido:** Resumen del incidente, impacto en usuarios, causa raíz (RCA), línea de tiempo de resolución y medidas preventivas.
+
+---
+
+## Regla de Oro Documental (Regla de Doble Índice)
+Todo nuevo documento agregado DEBE quedar indexado en:
+1. El `README.md` del subdirectorio correspondiente.
+2. El índice general [`docs/README.md`](file:///c:/Users/lordm/Desktop/Proyectos%20y%20clases/proyectos_mitrufely/plataforma_tipo_EVO/docs/README.md).

@@ -1,0 +1,20 @@
+---
+description: Límites y estructura del monorepo (Spring Boot, FastAPI, Next.js, Expo, docs)
+globs: *
+alwaysApply: true
+---
+
+# Límites del Monorepo
+
+- `docs/`: Toda la documentación vive aquí. NUNCA crear documentos sueltos en raíz.
+- `backend/`: Monolito modular Spring Boot 3 (Java 21). Módulos: auth, memberships, catalog, orders, billing, customers.
+- `services/`: Microservicios auxiliares FastAPI (Python 3.11+). Analytics, workers y tareas asíncronas.
+- `frontend/`: Web pública, e-commerce, POS counter y panel admin en Next.js 14+ (App Router).
+- `mobile/`: App socios en React Native + Expo (Fase 2).
+- `infra/`: Dockerfiles y Nginx reverse proxy.
+- `db/`: Migraciones y seeds SQL (PostgreSQL).
+
+## Reglas de Código
+- Modificaciones quirúrgicas. No refactorizar código adyacente sin solicitud explícita.
+- Commits bajo estándar Conventional Commits (`feat(modulo): descripción`).
+- No inventar reglas de negocio ni parámetros comerciales.

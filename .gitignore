@@ -1,0 +1,69 @@
+# === OS & IDE ===
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+*.iml
+.project
+.classpath
+.settings/
+
+# === Logs ===
+*.log
+logs/
+
+# === Env & Secrets ===
+.env
+.env.*
+!.env.example
+
+# === Node (frontend & mobile) ===
+node_modules/
+.next/
+out/
+dist/
+.expo/
+*.tsbuildinfo
+
+# === Python (services) ===
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+env/
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+
+# === Java / Spring Boot (backend) ===
+target/
+build/
+*.class
+*.jar
+*.war
+!gradle/wrapper/gradle-wrapper.jar
+.gradle/
+bin/
+
+# === Docker ===
+docker-compose.override.yml
+
+# === DB dumps ===
+*.sql.gz
+*.dump
+
+# === Docs: binarios originales se versionan, pero zips no ===
+docs/**/*.zip
+
+# === Archivos de audio/video grandes (usar Git LFS si se necesitan) ===
+*.ogg
+*.mp3
+*.mp4
+*.wav
+*.avi
+*.mov
